@@ -2,7 +2,7 @@ let g:NERDTreeWinSize = &columns * 4/10 - 1
 
 " Map NerdTree
 function! ToggleNerdTree()
-    let l:nerdtree_open = nerdtree#isTreeOpen()
+    let l:nerdtree_open = g:NERDTree.IsOpen()
 
     if l:nerdtree_open
         execute "set columns=".(s:columns) 
