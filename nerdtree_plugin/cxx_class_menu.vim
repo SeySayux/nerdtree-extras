@@ -47,17 +47,17 @@ function! NERDTreeAddCxxClass()
 
     try
         let newPathPrefix = curDirNode.path.str() . g:NERDTreePath.Slash() . newNodeName
-        let newPathH = g:NERDTreePath.Create(newPathPrefix . ".h")
+        let newPathHpp = g:NERDTreePath.Create(newPathPrefix . ".hpp")
         let newPathCpp = g:NERDTreePath.Create(newPathPrefix . ".cpp")
-        let parentNode = b:NERDTreeRoot.findNode(newPathH.getParent())
+        let parentNode = b:NERDTreeRoot.findNode(newPathHpp.getParent())
 
-        let newTreeNodeH = g:NERDTreeFileNode.New(newPathH)
+        let newTreeNodeHpp = g:NERDTreeFileNode.New(newPathHpp)
         let newTreeNodeCpp = g:NERDTreeFileNode.New(newPathCpp)
         if parentNode.isOpen || !empty(parentNode.children)
-            call parentNode.addChild(newTreeNodeH, 1)
+            call parentNode.addChild(newTreeNodeHpp, 1)
             call parentNode.addChild(newTreeNodeCpp, 1)
             call NERDTreeRender()
-            call newTreeNodeH.putCursorHere(1, 0)
+            call newTreeNodeHpp.putCursorHere(1, 0)
         endif
     catch /^NERDTree/
         call s:echoWarning("Node Not Created.")
